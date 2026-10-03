@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amad Ud Din | Professional Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b1120;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(11, 17, 32, 0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 25px 70px;
+            background:
+                radial-gradient(circle at top right, #164e63 0, transparent 35%),
+                radial-gradient(circle at bottom left, #1e3a8a 0, transparent 35%),
+                #0b1120;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h4 {
+            color: #38bdf8;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .hero-text h1 {
+            font-size: 65px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-text h2 {
+            color: #cbd5e1;
+            font-size: 27px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            max-width: 650px;
+            font-size: 17px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+        .primary-btn:hover {
+            background: #7dd3fc;
+            transform: translateY(-3px);
+        }
+
+        .secondary-btn {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .secondary-btn:hover {
+            background: #38bdf8;
+            color: #07111f;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: 310px;
+            height: 310px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #38bdf8, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 70px rgba(56,189,248,0.3);
+        }
+
+        .profile-inner {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: #111827;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .profile-inner h2 {
+            font-size: 34px;
+            color: #38bdf8;
+        }
+
+        .profile-inner p {
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        /* Sections */
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #38bdf8;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+        }
+
+        /* About */
+        .about-box {
+            background: #111827;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+        }
+
+        .about-box p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .skill-card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #111827;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+        }
+
+        .project-top {
+            height: 150px;
+            background: linear-gradient(135deg, #0369a1, #1d4ed8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #94a3b8;
+        }
+
+        /* Contact */
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #111827;
+            padding: 30px 20px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid #1e293b;
+        }
+
+        .contact-card .icon {
+            font-size: 35px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: #cbd5e1;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #070b14;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer span {
+            color: #38bdf8;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-card {
+                margin-top: 25px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero-text h1 {
+                font-size: 43px;
+            }
+
+            .hero-text h2 {
+                font-size: 21px;
+            }
+
+            .profile-circle {
+                width: 240px;
+                height: 240px;
+            }
+
+            .profile-inner {
+                width: 215px;
+                height: 215px;
+            }
+
+            .profile-inner h2 {
+                font-size: 27px;
+            }
+
+            .section-title h2 {
+                font-size: 31px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                Amad<span>.</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <h4>Hello, I'm</h4>
+
+                <h1>
+                    Amad <span>Ud Din</span>
+                </h1>
+
+                <h2>Computer Science Student & Future Developer</h2>
+
+                <p>
+                    Welcome to my professional portfolio. I am passionate
+                    about technology, software development, web design,
+                    and creating modern digital solutions.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn primary-btn">
+                        View My Work
+                    </a>
+
+                    <a href="#contact" class="btn secondary-btn">
+                        Contact Me
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-circle">
+
+                    <div class="profile-inner">
+
+                        <div>
+                            <h2>AMAD</h2>
+                            <p>Ud Din</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>About <span>Me</span></h2>
+                <p>Get to know me</p>
+            </div>
+
+            <div class="about-box">
+
+                <p>
+                    My name is <strong>Amad Ud Din</strong>.
+                    I am interested in computer science, programming,
+                    web development, and modern technology.
+                    I enjoy learning new technical skills and working
+                    on creative projects that solve real-world problems.
+                </p>
+
+                <br>
+
+                <p>
+                    My goal is to continue improving my development skills
+                    and build useful, professional and user-friendly
+                    software applications and websites.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Skills Section -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>My <span>Skills</span></h2>
+                <p>Technologies and areas I am interested in</p>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Creating modern and responsive websites
+                        using HTML, CSS and web technologies.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">📱</div>
+                    <h3>App Development</h3>
+                    <p>
+                        Interested in developing modern mobile
+                        applications and digital solutions.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>UI Design</h3>
+                    <p>
+                        Designing clean, attractive and
+                        user-friendly interfaces.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🧠</div>
+                    <h3>Programming</h3>
+                    <p>
+                        Learning programming concepts,
+                        problem solving and software development.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Database</h3>
+                    <p>
+                        Understanding data management and
+                        database-driven applications.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Learning</h3>
+                    <p>
+                        Continuously learning new technologies
+                        and improving technical skills.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>My <span>Projects</span></h2>
+                <p>Some project categories</p>
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        🌐
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+
+                        <p>
+                            A modern responsive personal portfolio
+                            website created using HTML and CSS.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        📱
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Mobile Application</h3>
+
+                        <p>
+                            A concept for a modern mobile application
+                            designed for students and users.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="project-card">
+
+                    <div class="project-top">
+                        🗄️
+                    </div>
+
+                    <div class="project-content">
+                        <h3>Management System</h3>
+
+                        <p>
+                            A database-based management system
+                            concept for organizing information efficiently.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Contact <span>Me</span></h2>
+                <p>Let's connect</p>
+            </div>
+
+            <div class="contact-box">
+
+                <div class="contact-card">
+
+                    <div class="icon">📧</div>
+
+                    <h3>Email</h3>
+
+                    <a href="mailto:imadjan691@gmail.com">
+                        imadjan691@gmail.com
+                    </a>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="icon">📱</div>
+
+                    <h3>Mobile</h3>
+
+                    <a href="tel:+923008033691">
+                        +92 300 8033691
+                    </a>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <div class="icon">👤</div>
+
+                    <h3>Name</h3>
+
+                    <p>
+                        Amad Ud Din
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 <span>Amad Ud Din</span>.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
